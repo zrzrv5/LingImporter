@@ -1,7 +1,8 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name        genjson
 // @namespace   donot.help
 // @include     http://jwgl.cust.edu.cn/teachweb/index1.aspx
+// @include     http://210.47.0.14/teachweb/index1.aspx
 // @version     1
 // @grant       none
 // ==/UserScript==
