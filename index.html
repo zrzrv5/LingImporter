@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title id='f'>L!NG Importer</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="author" content="dixyes">
+<meta name="description" content="ling importer collection">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+table tr:nth-child(even) {
+background: rgb(230, 238, 214)
+}
+table tr:nth-child(odd) {
+background: #FFF
+}
+</style>
+</head>
+<body>
+<h3 id='a'>L!NG Importer</h3>
+<a id='c'>Choose the importer you want and copy it's link into L!NG app.</a>
+<table id='zrzrv4'>
+  <tr>
+    <th id='e'>School</th>
+    <th id='p'>Link</th>
+    <th></th>
+  </tr>
+  <tr id='zrzrv5'>
+    <td id='u'>generating list</td>
+    <td id='n'>pleace wait...</td>
+    <td></td>
+  </tr>
+</table>
+<script>
+//list generator
+const xhr = new XMLHttpRequest();
+xhr.open('get', 'https://raw.githubusercontent.com/zrzrv5/LingImporter/master/index.json', true);
+xhr.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+      document.getElementById('zrzrv5').parentNode.removeChild(document.getElementById('zrzrv5'));
+      var i,index = JSON.parse(xhr.responseText);
+      for(i in index){
+        var imptr=document.createElement('tr');
+        var name=document.createElement('td');
+        name.innerHTML=i;
+        var value=document.createElement('td');
+        value.innerHTML='https://raw.githubusercontent.com/zrzrv5/LingImporter/master/'+index[i];
+        var clkOpen=document.createElement('td');
+        clkOpen.innerHTML='<a href="'+value.innerHTML+'">'+d[navigator.language||navigator.broserLanguage]['h']||"Click to open"+'</a>';
+        imptr.appendChild(name);
+        imptr.appendChild(value);
+        imptr.appendChild(clkOpen);
+        document.getElementById('zrzrv4').appendChild(imptr)
+      }
+    }
+  }
+}
+xhr.send(null);
+//translator
+let i;
+const k=['f','a','c','e','p','u','n','c','h'];
+const d={
+"zh-CN":{
+'f':'L!NG 导入脚本',
+'a':'L!NG 导入脚本',
+'c':'从下面列表选择你想要的导入器并在L!NG中使用',
+'e':'学校',
+'p':'链接',
+'u':'生成中',
+'n':'请稍候',
+'h':'点击打开'
+}
+}
+for(i in k){
+if(d[navigator.language||navigator.broserLanguage][k[i]])
+    document.getElementById(k[i]).innerHTML=d[navigator.language||navigator.broserLanguage][k[i]];
+}
+</script>
+</body>
+</html>
