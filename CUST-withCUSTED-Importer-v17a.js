@@ -24,7 +24,7 @@ String.prototype.hashCode = function () {
   return hash;
 };
 window.lingJSON2Link = function(l){
-  return 'lingapp://'+endcodeURI(JSON.stringify(l));
+  return 'lingapp://'+encodeURI(JSON.stringify(l));
 }
 
 //parser
