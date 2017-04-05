@@ -95,7 +95,7 @@ window.parsedb = function (db) {
 //xhr part
 //if you port this to any other place, use another way to do this!
 const xhr = new XMLHttpRequest();
-xhr.open('get', 'http://m.cust.edu.cn/class.html?fun=db', true);
+xhr.open('get', 'http://m.cust.edu.cn/schedule.html?fun=db', true);
 xhr.onreadystatechange = function () {
   if (this.readyState === 4) {
     if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
