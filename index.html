@@ -34,7 +34,31 @@ background: #FFF
   </tr>
 </table>
 <script>
-//list generator
+'use strict';
+window.onload=function(){
+//translator
+let i;
+const k=['f','a','c','e','p','u','n','c','h'];
+const d={
+"zh-cn":{
+'f':'L!NG 导入脚本',
+'a':'L!NG 导入脚本',
+'c':'从下面列表选择你想要的导入器并在L!NG中使用',
+'e':'学校',
+'p':'链接',
+'u':'生成中',
+'n':'请稍候',
+'h':'点击打开'
+}
+};
+const l=(navigator.language||navigator.browserLanguage).toLowerCase();
+for(i in k){
+if(d[l][k[i]]){
+try{document.getElementById(k[i]).innerHTML=d[l][k[i]];}
+catch(e){}
+}
+}
+//xhr generate list
 const xhr = new XMLHttpRequest();
 xhr.open('get', 'https://raw.githubusercontent.com/zrzrv5/LingImporter/master/index.json', true);
 xhr.onreadystatechange = function () {
@@ -49,34 +73,16 @@ xhr.onreadystatechange = function () {
         var value=document.createElement('td');
         value.innerHTML='https://raw.githubusercontent.com/zrzrv5/LingImporter/master/'+index[i];
         var clkOpen=document.createElement('td');
-        clkOpen.innerHTML='<a href="'+value.innerHTML+'">'+d[navigator.language||navigator.broserLanguage]['h']||"Click to open"+'</a>';
+        clkOpen.innerHTML='<a href="'+value.innerHTML+'">'+d[l]['h']||"Click to open"+'</a>';
         imptr.appendChild(name);
         imptr.appendChild(value);
         imptr.appendChild(clkOpen);
-        document.getElementById('zrzrv4').appendChild(imptr)
+        document.getElementById('zrzrv4').appendChild(imptr);
       }
     }
   }
 }
 xhr.send(null);
-//translator
-let i;
-const k=['f','a','c','e','p','u','n','c','h'];
-const d={
-"zh-CN":{
-'f':'L!NG 导入脚本',
-'a':'L!NG 导入脚本',
-'c':'从下面列表选择你想要的导入器并在L!NG中使用',
-'e':'学校',
-'p':'链接',
-'u':'生成中',
-'n':'请稍候',
-'h':'点击打开'
-}
-}
-for(i in k){
-if(d[navigator.language||navigator.broserLanguage][k[i]])
-    document.getElementById(k[i]).innerHTML=d[navigator.language||navigator.broserLanguage][k[i]];
 }
 </script>
 </body>
