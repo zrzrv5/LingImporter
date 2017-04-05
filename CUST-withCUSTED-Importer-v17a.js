@@ -4,8 +4,8 @@
 // @include     http://m.cust.edu.cn/*
 // @version     1
 // @grant       none
-// @author      dixyes
-// @copyright   2017+, dixyes
+// @author      dixyes, twosee
+// @copyright   2017+, dixyes, twosee
 // @license     MIT License
 // ==/UserScript==
 
