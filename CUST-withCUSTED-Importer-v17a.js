@@ -90,6 +90,8 @@ window.parsedb = function (db) {
     //for ling use:
     window.location=window.lingJSON2Link(LingResultJSON);
 };
+if(!lo.schedule.db)
+    lo.schedule({db:true,cache:true});
 window.parsedb(lo.schedule.db);
 /*
 //xhr part
